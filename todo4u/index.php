@@ -1,6 +1,8 @@
 <?php
 // Variable $dateoftoday: Gets the date of today for the form
 $dateoftoday = date('Y-m-d');
+session_start()
+
 ?>
 
 <!DOCTYPE html>
