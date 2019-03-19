@@ -6,12 +6,12 @@
     <title>Login ToDo4U </title>
     <link rel="icon" href="img/post-it.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
 </head>
 <body>
     
 
-<div id="login">
+<center><br><br><div id="login">
         <div id="titel">
            <strong> LOGIN </strong>
         </div>
@@ -19,7 +19,7 @@
         </div>
         <form class="loginForm" action="login-handler.php" method="POST"> <br>
             E-mail: <br>
-            <input type="email" id="user_email" name="user_email" autofocus required/><br>
+            <input type="text" id="user_email" name="user_email" autofocus required/><br>
             Password: <br>
             <input type="password" id="user_password" name="user_password" required/><br><br>
            
@@ -30,6 +30,7 @@
        </form>
     </div>
     </div>
+    <br><br><br><br>
     <div id="registreer">
         <div id="titel">
            <strong> REGISTER </strong>
@@ -44,12 +45,11 @@
             <input type="email" id="mail" name="mail" required><br>
             Password:<br>
             <input type="password" id="word" name="word" required><br><br>
-            
-           
-                <input type="submit" value="REGISTER" id="loginknop">
+            <input type="submit" value="REGISTER" id="loginknop">
         
             <br>
         </form>
-    </div>
+    </div></center>
+    
 </body>
 </html>

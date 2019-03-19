@@ -12,9 +12,9 @@
 
     $user_password = $_POST['user_password'];
 
-    $result = "SELECT email, password, ID
+    $result = "SELECT email, name, password, ID
                FROM users
-               WHERE email = '$user_email'
+               WHERE (email = '$user_email' OR name = '$user_email')
                AND password = '$user_password'";
 
     $db_result = $conn->query($result);
