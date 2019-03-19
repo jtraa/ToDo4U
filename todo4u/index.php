@@ -52,7 +52,8 @@ session_start()
                 <th>N</th>
                 <th>Task</th>
                 <th>Note</th>
-                <th>Date</th>
+                <th>Begin Date</th>
+                <th>End Date</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>

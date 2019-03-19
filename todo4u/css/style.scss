@@ -20,15 +20,15 @@ $border: 2px solid red;
 }
 
 @font-face {
-  font-family: "NaturalMarker";
-  font-style: normal;
-  src: url("fonts/Natural Marker.ttf");
+  font-family: "Comfort";
+  font-style: bold;
+  src: url("fonts/Comfortaa-Bold.ttf");
 }
 
 @font-face {
-  font-family: "NaturalMarker";
+  font-family: "SFCHand";
   font-style: italic;
-  src: url("fonts/NaturalMarkerItalic.ttf");
+  src: url("fonts/SFCHand.ttf");
 }
 
 body,
@@ -38,15 +38,18 @@ html {
    background-repeat: no-repeat;
    background-position: top left;
   margin: 0;
+  font-family: 'SFCHand';
+  font-size: 20px;
   color: #000000;
 
   h1 {
     font-size: 50px;
     font-style: normal;
+    font-family: 'Comfort';
 
   }
   form {
-   
-   
+   font-size: 20px;
   }
+
 }

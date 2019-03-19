@@ -18,7 +18,7 @@
         <div id="line">
         </div>
         <form class="loginForm" action="login-handler.php" method="POST"> <br>
-            E-mail: <br>
+            Name or Mail: <br>
             <input type="text" id="user_email" name="user_email" autofocus required/><br>
             Password: <br>
             <input type="password" id="user_password" name="user_password" required/><br><br>
