@@ -1,0 +1,52 @@
+$colors: (
+  primary: #005dff,
+  primary-light: lighten(#005dff, 40%),
+  primary-dark: darken(#005dff, 40%),
+  accent: #fff6bb,
+  bgcolor: #FFFFFF,
+);
+
+$padding: 15px;
+$borders: 15px;
+$border: 2px solid red;
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "NaturalMarker";
+  font-style: normal;
+  src: url("fonts/Natural Marker.ttf");
+}
+
+@font-face {
+  font-family: "NaturalMarker";
+  font-style: italic;
+  src: url("fonts/NaturalMarkerItalic.ttf");
+}
+
+body,
+html {
+   background-image: url(img/2doforu.jpg);
+   background-size: 15%;
+   background-repeat: no-repeat;
+   background-position: top left;
+  margin: 0;
+  color: #000000;
+
+  h1 {
+    font-size: 50px;
+    font-style: normal;
+
+  }
+  form {
+   
+   
+  }
+}
