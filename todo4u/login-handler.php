@@ -23,6 +23,7 @@
         foreach($db_result as $row){
             $firstname = $row['email'];
             $_SESSION['email']=$row['email'];
+            $_SESSION['name']=$row['name'];
             $_SESSION['ID']=$row['ID'];
         }
                

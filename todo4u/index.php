@@ -1,8 +1,7 @@
 <?php
 // Variable $dateoftoday: Gets the date of today for the form
 $dateoftoday = date('Y-m-d');
-session_start()
-
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +15,9 @@ session_start()
     <title>ToDo4U</title>
 </head>
 <body>
+    <div style="float:right" class="welcomemessage">
+    <?php echo "Welcome " . ($_SESSION['name']) . ", this is your notelist!"; ?>
+    </div><br>
     <div class="heading">
        <center> <h1> New Task </h1> </center>
   </div>
@@ -56,7 +58,7 @@ session_start()
                 <th>End Date</th>
                 <th>Updated</th>
                 <th>Edit</th>
-                <th>Del</th>
+                <th>Delete</th>
             </tr>
         </thead>
     

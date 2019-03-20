@@ -1,10 +1,14 @@
 <?php
 
+
 include 'dbconnection.php';
 
+
+$userID = $_SESSION['ID'];
 //query select all from table Tasks
 
-$sql_querie = "SELECT * FROM tasks";
+// $sql_querie = "SELECT * FROM tasks";  
+$sql_querie = "SELECT * FROM tasks WHERE UserID='$userID'";
 
 $db_result = $conn->query($sql_querie);
 
