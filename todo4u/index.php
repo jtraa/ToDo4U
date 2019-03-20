@@ -54,9 +54,9 @@ session_start()
                 <th>Note</th>
                 <th>Begin Date</th>
                 <th>End Date</th>
-                <th>Update Time</th>
+                <th>Updated</th>
                 <th>Edit</th>
-                <th>Delete</th>
+                <th>Del</th>
             </tr>
         </thead>
     
