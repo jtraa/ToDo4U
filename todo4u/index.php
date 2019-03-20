@@ -54,13 +54,14 @@ session_start()
                 <th>Note</th>
                 <th>Begin Date</th>
                 <th>End Date</th>
+                <th>Update Time</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
         </thead>
-
+    
     <?php include "showtablehandler.php"; ?>
-
+    
     </table>
 
  </div>

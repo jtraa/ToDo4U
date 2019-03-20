@@ -24,6 +24,7 @@ foreach ($db_result as $row)
     '<td class="note">' . $row['note'] . '</td>' .
     '<td class="date">' . $row['date'] . '</td>' .
     '<td class="date">' . $row['begindate'] . '</td>' .
+    '<td class="update">' . $row['lastupdated'] . '</td>' .
     
     '<td class="edit">' .
     '<a href="#">' . 'edit' . '</a>' .
