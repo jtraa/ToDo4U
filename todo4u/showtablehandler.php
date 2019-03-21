@@ -8,7 +8,7 @@ $userID = $_SESSION['ID'];
 //query select all from table Tasks
 
 // $sql_querie = "SELECT * FROM tasks";  
-$sql_querie = "SELECT * FROM tasks WHERE UserID='$userID'";
+$sql_querie = "SELECT * FROM tasks WHERE UserID='$userID' ORDER BY date";
 
 $db_result = $conn->query($sql_querie);
 
