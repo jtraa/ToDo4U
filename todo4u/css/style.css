@@ -41,13 +41,14 @@ html form {
   font-size: 20px;
 }
 
+body .welcomemessage a,
+html .welcomemessage a {
+  color: black;
+}
+
 body a,
 html a {
   text-decoration: none;
-}
-
-body a a .logout,
-html a a .logout {
-  color: red;
+  color: black;
 }
 /*# sourceMappingURL=style.css.map */

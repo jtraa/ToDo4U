@@ -51,10 +51,11 @@ html {
   form {
    font-size: 20px;
   }
+  .welcomemessage a{
+    color: black;
+  }
   a {
     text-decoration: none;
-    a .logout{
-      color: red;
-    }
+    color: black;
   }
 }

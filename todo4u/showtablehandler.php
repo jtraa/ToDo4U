@@ -31,7 +31,8 @@ foreach ($db_result as $row)
     '<td class="update">' . $row['lastupdated'] . '</td>' .
     
     '<td class="edit">' .
-    '<a href="#">' . 'edit' . '</a>' .
+    '<a href="updatetask.php?upd_task=' . $row['id'] . '"> edit' . '</a>' .
+    '</td>' .
 
 
 // Delete class, link to deletetask.php and to del_task, to delete the row in the table

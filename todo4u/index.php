@@ -17,7 +17,7 @@ session_start();
 <body>
     <div style="float:right" class="welcomemessage">
     <?php echo "Welcome " . ($_SESSION['name']) . ", this is your notelist!" . '<br>' .
-    '<a class="logout" style="text-decoration: none; float: right;" href="logouthandler.php">' . "LOGOUT" . '</a>' ?>
+    '<a style="text-decoration: none; float: right;" href="logouthandler.php">' . "LOGOUT" . '</a>' ?>
     </div><br><br>
     <div class="heading">
        <center> <h1> New Task </h1> </center>
@@ -31,13 +31,13 @@ session_start();
         <input type="text" name="task" class="task_input" required>
         <br><br>
         Note <br>
-        <textarea rows="4" cols="50" name="note" class="task_input" required></textarea>
+        <textarea rows="4" cols="50" name="note" class="task_input"></textarea>
         <br><br>
         Begin <br>
-        <input type="date" name="begindate" value=<?php echo $dateoftoday; ?> required>
+        <input type="date" name="begindate" min="2015-01-01" value=<?php echo $dateoftoday; ?> required>
             <br>
         Completed <br>
-        <input type="date" name="date" min="2000-01-02" required><br><br>
+        <input type="date" name="date" min="2015-01-01" required><br><br>
 
         
 
