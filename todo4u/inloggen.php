@@ -17,7 +17,7 @@
         </div>
         <div id="line">
         </div>
-        <form class="loginForm" action="login-handler.php" method="POST"> <br>
+        <form autocomplete="off" class="loginForm" action="login-handler.php" method="POST"> <br>
             Name or Mail: <br>
             <input type="text" id="user_email" name="user_email" autofocus required/><br>
             Password: <br>
@@ -38,7 +38,7 @@
         <br>
         <div id="line">
         </div>
-        <form class="registerForm" action="register-handler.php" method="POST">
+        <form autocomplete="off" class="registerForm" action="register-handler.php" method="POST">
             Name:<br>
             <input type="text" id="name" name="name" required><br>
             E-mail:<br>

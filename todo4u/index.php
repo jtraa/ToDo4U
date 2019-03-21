@@ -16,14 +16,15 @@ session_start();
 </head>
 <body>
     <div style="float:right" class="welcomemessage">
-    <?php echo "Welcome " . ($_SESSION['name']) . ", this is your notelist!"; ?>
+    <?php echo "Welcome " . ($_SESSION['name']) . ", this is your notelist!" . '<br>' .
+    '<a href="logouthandler.php">' . "LOGOUT" . '</a>' ?>
     </div><br>
     <div class="heading">
        <center> <h1> New Task </h1> </center>
   </div>
 <center>
     <!-- This is the form for adding a task. All the inputs/textarea are required, so that you can't put in blank notes -->
-    <form method="POST" action="formhandler.php">
+    <form autocomplete="off" method="POST" action="formhandler.php">
 
         <br><br>
         Title <br>
