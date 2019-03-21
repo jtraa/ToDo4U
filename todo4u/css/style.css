@@ -40,4 +40,14 @@ body form,
 html form {
   font-size: 20px;
 }
+
+body a,
+html a {
+  text-decoration: none;
+}
+
+body a a .logout,
+html a a .logout {
+  color: red;
+}
 /*# sourceMappingURL=style.css.map */

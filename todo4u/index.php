@@ -17,8 +17,8 @@ session_start();
 <body>
     <div style="float:right" class="welcomemessage">
     <?php echo "Welcome " . ($_SESSION['name']) . ", this is your notelist!" . '<br>' .
-    '<a href="logouthandler.php">' . "LOGOUT" . '</a>' ?>
-    </div><br>
+    '<a class="logout" style="text-decoration: none; float: right;" href="logouthandler.php">' . "LOGOUT" . '</a>' ?>
+    </div><br><br>
     <div class="heading">
        <center> <h1> New Task </h1> </center>
   </div>
