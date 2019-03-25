@@ -1,6 +1,11 @@
 <?php
+session_start();
 
-if (isset($_POST))
+
+if (isset($_POST['filter_on'])){
+    
+}
+
 
 $sql_querie = "SELECT * FROM tasks ORDER BY $sort";
 $db_result = $conn->query($sql_querie);
