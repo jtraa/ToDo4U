@@ -1,5 +1,5 @@
 <?php
 session_start();
 session_destroy();
-header('location: inloggen.php');
+header('location: index.php');
 ?>

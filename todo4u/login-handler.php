@@ -1,10 +1,6 @@
-
-
 <?php
-    session_start();
-   
     
-
+    session_start();
 
     include "dbconnection.php";
 
@@ -26,12 +22,17 @@
             $_SESSION['name']=$row['name'];
             $_SESSION['ID']=$row['ID'];
         }
-               
-        header("Location: index.php");
+        error_reporting(E_ALL);
+        ini_set('display_errors','On');
+
+        header('Location: home.php');
+        die('redirect');
+         
         
     } else{
-        echo "Failed, email or password wrong"; 
+        die('failure');
+        header('Location: http://todo4u.jelletraa.com/home.php');
     }
-
-
+   
+   
 ?>

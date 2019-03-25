@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
     $sql_querie = "INSERT INTO tasks (task, UserID, note, date, begindate) VALUES ('$task', '$id', '$note', '$date', '$begindate')";
 
     $db_result = $conn->query($sql_querie);
-     header('location: index.php');
+     header('location: home.php');
 
    
 }

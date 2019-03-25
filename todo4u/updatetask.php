@@ -9,8 +9,11 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
 </head>
 <body>
+</body>
+</html>
 
 <?php
+
 include 'dbconnection.php';
 
 session_start();
@@ -26,6 +29,8 @@ $db_result = $conn->query($sql_querie);
 
 foreach ($db_result as $row)
 {$_SESSION['id']=$row['id'];
+    error_reporting(E_ALL);
+        ini_set('display_errors','On');
 
 echo '<center>' . '<form autocomplete="off" method="POST" action="updatehandler.php">' .
         '<div class="heading">' .
@@ -52,5 +57,3 @@ echo '<center>' . '<form autocomplete="off" method="POST" action="updatehandler.
 }
 
 ?>
-</body>
-</html>

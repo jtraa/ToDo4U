@@ -14,7 +14,9 @@ if (isset($_POST['submit'])) {
     $sql_querie = "UPDATE tasks SET task = '$task', note = '$note', date = '$date' , begindate = '$begindate' WHERE '$id'=id";
 
     $db_result = $conn->query($sql_querie);
-     header('location: index.php');
+     header('location: home.php');
 
+     
 }
+
 ?>
