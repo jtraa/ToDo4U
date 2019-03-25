@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,22 +20,20 @@
 
 include 'dbconnection.php';
 
-session_start();
-
-
 if (isset($_GET['upd_task'])) {
     $id = $_GET['upd_task'];
+    $_SESSION['task_id'] = $id;
+   
+
 // $userID = $_SESSION['ID'];
-$sql_querie = "SELECT * FROM tasks WHERE '$id'=id";
+$sql_querie = "SELECT * FROM tasks WHERE id='$id'";
 $db_result = $conn->query($sql_querie);
 }
 //Foreach for showing the table on the site
 
 foreach ($db_result as $row)
-{$_SESSION['id']=$row['id'];
-    error_reporting(E_ALL);
-        ini_set('display_errors','On');
-
+{
+    
 echo '<center>' . '<form autocomplete="off" method="POST" action="updatehandler.php">' .
         '<div class="heading">' .
         '<center> <h1>' . 'Update Task' . '</h1> </center>' .
