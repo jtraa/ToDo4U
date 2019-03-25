@@ -1,15 +1,8 @@
 <?php
 
+if (isset($_POST))
 
-include 'dbconnection.php';
-
-
-$userID = $_SESSION['ID'];
-//query select all from table Tasks
-
-// $sql_querie = "SELECT * FROM tasks";  
-$sql_querie = "SELECT * FROM tasks WHERE UserID='$userID' ORDER BY date";
-
+$sql_querie = "SELECT * FROM tasks ORDER BY $sort";
 $db_result = $conn->query($sql_querie);
 
 //variable $i is for the numbering
@@ -30,7 +23,7 @@ foreach ($db_result as $row)
     '<td class="date">' . $row['date'] . '</td>' .
     '<td class="update">' . $row['lastupdated'] . '</td>' .
 
-// Update class, link to updatetask.php adn to upd_task class, to edit the row in the table.     
+// Update class, link to updatetask.php adn to upd_task class, to edit the row in the table.    
 
     '<td class="edit">' .
     '<a href="updatetask.php?upd_task=' . $row['id'] . '"> edit' . '</a>' .
@@ -48,3 +41,4 @@ foreach ($db_result as $row)
     
     '<tbody>';
 }
+?>
