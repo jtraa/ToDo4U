@@ -1,14 +1,30 @@
 <?php
+ if(!isset($_SESSION)) 
+ { 
+     session_start(); 
+ } 
 
 
 include 'dbconnection.php';
 
 
-$userID = $_SESSION['ID'];
-//query select all from table Tasks
 
-// $sql_querie = "SELECT * FROM tasks";  
-$sql_querie = "SELECT * FROM tasks WHERE UserID='$userID' ORDER BY date";
+//query select all from table Tasks, filters included all columns.
+
+if (isset($_POST['submit'])){
+    $q = $_POST['q'];
+    $column = $_POST['column'];
+
+    if ($column == "" || ($column !="lastupdated" && $column != "date" && $column != "task" && $column != "begindate" && $column != "note"))
+    $column = "begindate";
+    
+    $userID = $_SESSION['ID'];
+
+$sql_querie = "SELECT * FROM tasks WHERE (UserID=$userID AND $column LIKE '%$q%') ORDER BY $column asc";
+}else{
+    $userID = $_SESSION['ID'];
+    $sql_querie="SELECT * FROM tasks WHERE UserID='$userID' ORDER BY date desc";
+}
 
 $db_result = $conn->query($sql_querie);
 
@@ -18,9 +34,15 @@ $i=1;
 
 //Foreach for showing the table on the site
 
+
+
 foreach ($db_result as $row)
-{
-    echo '<div class = "results">' .
+{   
+
+    echo 
+    
+    '<div class="filter">' .
+    '<div class = "results">' .
     '<tbody>' .
     '<tr>' .
     '<td>' . $i++ . '</td>' .
@@ -46,5 +68,8 @@ foreach ($db_result as $row)
     '</td>' .
     '</tr>' .
     
-    '<tbody>';
+    '<tbody>' .
+    '</div></div>';
+
+
 }
