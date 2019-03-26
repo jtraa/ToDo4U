@@ -8,11 +8,11 @@ if (isset($_POST['submit'])){
     $q = $_POST['q'];
     $column = $_POST['column'];
 
-    if ($column == "" || ($column !="last_updated" && $column != "end_date" && $column != "task_name"))
+    if ($column == "" || ($column !="lastupdated" && $column != "date" && $column != "task"))
     $column = "last_updated";
 
   
-    $sql_querie = "SELECT task, date, lastupdated FROM tasks WHERE $column LIKE '%$q%'";
+    $sql_querie = "SELECT task, lastupdated, date FROM tasks WHERE $column LIKE '%$q%' WHERE id = '$id'";
     $db_result = $conn->query($sql_querie);
 
     foreach ($db_result as $row)

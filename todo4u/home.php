@@ -49,12 +49,12 @@ session_start();
 
     <center>
     <form method="post" action="filters.php">
-        <input type="text" name="q" placeholder="filter on">
+        <input type="text" name="q" placeholder="Filter on">
         <select name="column">
             <option value=""> Select Filter</option>
-            <option value="last_updated">Updated date</option>
-            <option value="end_date">End date</option>
-            <option value="task_name">Task</option>
+            <option value="lastupdated">Updated date</option>
+            <option value="date">End date</option>
+            <option value="task">Task</option>
         </select>   
         <input type="submit" name="submit" value="Find">
     </form>
