@@ -4,12 +4,9 @@
      session_start(); 
  } 
 
-
 include 'dbconnection.php';
 
-
-
-//query select all from table Tasks, filters included all columns.
+//query select all from table Tasks, filter on every column
 
 if (isset($_POST['submit'])){
     $q = $_POST['q'];
@@ -21,6 +18,8 @@ if (isset($_POST['submit'])){
     $userID = $_SESSION['ID'];
 
 $sql_querie = "SELECT * FROM tasks WHERE (UserID=$userID AND $column LIKE '%$q%') ORDER BY $column asc";
+
+//else statement for showing the table before filtering
 }else{
     $userID = $_SESSION['ID'];
     $sql_querie="SELECT * FROM tasks WHERE UserID='$userID' ORDER BY date desc";
@@ -40,7 +39,7 @@ foreach ($db_result as $row)
 {   
 
     echo 
-    
+    '<center>' .
     '<div class="filter">' .
     '<div class = "results">' .
     '<tbody>' .

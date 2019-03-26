@@ -70,7 +70,7 @@ session_start();
     </form>
     </center>
     <br>
-
+    
         <thead>
             <tr>
                 <th>N</th>
@@ -83,9 +83,9 @@ session_start();
                 <th>Delete</th>
             </tr>
         </thead>
-    
-    <?php include "showtablehandler.php"; ?>
   
+    <?php include "showtablehandler.php"; ?>
+    
 
     
     </table>
