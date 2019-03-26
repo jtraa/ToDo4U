@@ -67,14 +67,13 @@ foreach ($db_result as $row)
 
     '</td>' .
     '<td>' .
-  '<input type="checkbox" id="scales" name="scales"
-         checked>' .
-  '<label for="scales"></label>'.
+  '<input type="checkbox">' .
+  '<label></label>'.
 '</td>' .
 
 '<td>' .
-  '<input type="checkbox" id="horns" name="horns">' .
-  '<label for="horns"></label>' .
+  '<input type="checkbox" >' .
+  '<label></label>' .
 '</td>' .
    
     '</tr>' .
