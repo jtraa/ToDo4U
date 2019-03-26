@@ -4,6 +4,7 @@
      session_start(); 
  } 
 
+
 include 'dbconnection.php';
 
 //query select all from table Tasks, filter on every column
@@ -65,6 +66,17 @@ foreach ($db_result as $row)
     '<a href="deletetask.php?del_task=' . $row['id'] . '"> x' . '</a>' .
 
     '</td>' .
+    '<td>' .
+  '<input type="checkbox" id="scales" name="scales"
+         checked>' .
+  '<label for="scales"></label>'.
+'</td>' .
+
+'<td>' .
+  '<input type="checkbox" id="horns" name="horns">' .
+  '<label for="horns"></label>' .
+'</td>' .
+   
     '</tr>' .
     
     '<tbody>' .
