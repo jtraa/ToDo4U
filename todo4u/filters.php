@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 include "dbconnection.php";
 
 
@@ -8,18 +6,25 @@ if (isset($_POST['submit'])){
     $q = $_POST['q'];
     $column = $_POST['column'];
 
+    session_start();
+
     if ($column == "" || ($column !="lastupdated" && $column != "date" && $column != "task"))
     $column = "last_updated";
-
+   
+    $userID = $_SESSION['ID'];
   
-    $sql_querie = "SELECT task, lastupdated, date FROM tasks WHERE $column LIKE '%$q%' WHERE id = '$id'";
+    $sql_querie = "SELECT task, lastupdated, date FROM tasks WHERE (UserID=$userID AND $column LIKE '%$q%') ORDER BY $column";
     $db_result = $conn->query($sql_querie);
 
     foreach ($db_result as $row)
     {
-        echo $row["task"] . "<br>";
-        echo $row["lastupdated"] . "<br>";
-        echo $row["date"] . "<br>";
+        echo 
+        
+        '<div class="filter">' .
+        '<td>' . $row["task"] . '</td>' . "<br>" .
+        $row["lastupdated"] . "<br>" .
+        $row["date"] . "<br>" .
+        '</div>';
     }
 }
 

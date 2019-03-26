@@ -79,6 +79,7 @@ session_start();
         </thead>
     
     <?php include "showtablehandler.php"; ?>
+    <?php include "filters.php"; ?>
 
 
     
