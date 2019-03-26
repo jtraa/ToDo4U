@@ -7,7 +7,7 @@ if (isset($_POST['filter_on'])){
 }
 
 
-$sql_querie = "SELECT * FROM tasks ORDER BY $sort";
+$sql_querie = "SELECT * FROM tasks WHERE ";
 $db_result = $conn->query($sql_querie);
 
 //variable $i is for the numbering
