@@ -47,6 +47,21 @@ session_start();
     </center>
     <br> <br>
 
+    <center>
+    <form method="post" action="filters.php">
+        <input type="text" name="q" placeholder="filter on">
+        <select name="column">
+            <option value=""> Select Filter</option>
+            <option value="last_updated">Updated date</option>
+            <option value="end_date">End date</option>
+            <option value="task_name">Task</option>
+        </select>   
+        <input type="submit" name="submit" value="Find">
+    </form>
+    </center>
+    <br>
+
+
     <!-- this is the table where is shown what's put in the database, soo your notelist is displayed here.
     There's a link to the showtablehandler.php because there is the rest of the table.-->
     <table>
@@ -64,6 +79,8 @@ session_start();
         </thead>
     
     <?php include "showtablehandler.php"; ?>
+
+
     
     </table>
 

@@ -1,49 +1,62 @@
 <?php
 session_start();
 
+include "dbconnection.php";
 
-if (isset($_POST['filter_on'])){
-    
+
+if (isset($_POST['submit'])){
+    $q = $_POST['q'];
+    $column = $_POST['column'];
+
+    if ($column == "" || ($column !="last_updated" && $column != "end_date" && $column != "task_name"))
+    $column = "last_updated";
+
+  
+    $sql_querie = "SELECT task, date, lastupdated FROM tasks WHERE $column LIKE '%$q%'";
+    $db_result = $conn->query($sql_querie);
+
+    foreach ($db_result as $row)
+    {
+        echo $row["task"] . "<br>";
+        echo $row["lastupdated"] . "<br>";
+        echo $row["date"] . "<br>";
+    }
 }
 
+// //variable $i is for the numbering
 
-$sql_querie = "SELECT * FROM tasks WHERE ";
-$db_result = $conn->query($sql_querie);
+// $i=1;
 
-//variable $i is for the numbering
+// //Foreach for showing the table on the site
 
-$i=1;
+// foreach ($db_result as $row)
+// {
+//     echo '<div class = "results">' .
+//     '<tbody>' .
+//     '<tr>' .
+//     '<td>' . $i++ . '</td>' .
+//     '<td class="task">' . $row['task'] . '</td>' .
+//     '<td class="note">' . $row['note'] . '</td>' .
+//     '<td class="date">' . $row['begindate'] . '</td>' .
+//     '<td class="date">' . $row['date'] . '</td>' .
+//     '<td class="update">' . $row['lastupdated'] . '</td>' .
 
-//Foreach for showing the table on the site
+// // Update class, link to updatetask.php adn to upd_task class, to edit the row in the table.    
 
-foreach ($db_result as $row)
-{
-    echo '<div class = "results">' .
-    '<tbody>' .
-    '<tr>' .
-    '<td>' . $i++ . '</td>' .
-    '<td class="task">' . $row['task'] . '</td>' .
-    '<td class="note">' . $row['note'] . '</td>' .
-    '<td class="date">' . $row['begindate'] . '</td>' .
-    '<td class="date">' . $row['date'] . '</td>' .
-    '<td class="update">' . $row['lastupdated'] . '</td>' .
-
-// Update class, link to updatetask.php adn to upd_task class, to edit the row in the table.    
-
-    '<td class="edit">' .
-    '<a href="updatetask.php?upd_task=' . $row['id'] . '"> edit' . '</a>' .
-    '</td>' .
+//     '<td class="edit">' .
+//     '<a href="updatetask.php?upd_task=' . $row['id'] . '"> edit' . '</a>' .
+//     '</td>' .
 
 
-// Delete class, link to deletetask.php and to del_task, to delete the row in the table
+// // Delete class, link to deletetask.php and to del_task, to delete the row in the table
 
-    '<td class="delete">' .
+//     '<td class="delete">' .
 
-    '<a href="deletetask.php?del_task=' . $row['id'] . '"> x' . '</a>' .
+//     '<a href="deletetask.php?del_task=' . $row['id'] . '"> x' . '</a>' .
 
-    '</td>' .
-    '</tr>' .
+//     '</td>' .
+//     '</tr>' .
     
-    '<tbody>';
-}
-?>
+//     '<tbody>';
+// }
+// ?>
