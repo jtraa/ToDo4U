@@ -22,7 +22,7 @@ $sql_querie = "SELECT * FROM tasks WHERE (UserID=$userID AND $column LIKE '%$q%'
 //else statement for showing the table before filtering
 }else{
     $userID = $_SESSION['ID'];
-    $sql_querie="SELECT * FROM tasks WHERE UserID='$userID' ORDER BY date desc";
+    $sql_querie="SELECT * FROM tasks WHERE UserID='$userID' ORDER BY begindate desc";
 }
 
 $db_result = $conn->query($sql_querie);
