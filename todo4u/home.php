@@ -45,7 +45,7 @@ session_start();
     
     </form>
     </center>
-    <br> <br>
+    <br>
 
    
 
@@ -55,10 +55,9 @@ session_start();
     There's a link to the showtablehandler.php because there is the rest of the table.-->
     <table>
     
-    <center>
      <form method="post" action="home.php"> 
-        <input type="text" name="q" placeholder="Filter on">
-        <select name="column">
+        <input type="text" name="q" placeholder="Filter on" autocomplete="off">
+        <select name="column" required>
             <option value=""> Select Filter</option>
             <option value="task">Task</option>
             <option value="note">Note</option>
@@ -68,7 +67,7 @@ session_start();
         </select>   
         <input type="submit" name="submit" value="Find">
     </form>
-    </center>
+   <br>
     <br>
     
         <thead>
@@ -91,5 +90,6 @@ session_start();
     </table>
 
  </div>
+ 
 </body>
 </html>
