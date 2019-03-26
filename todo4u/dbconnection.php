@@ -17,7 +17,7 @@ try {
     }
 catch(PDOException $e)
     {
-   
+        echo ("database not connected");
     }
     
 ?>
