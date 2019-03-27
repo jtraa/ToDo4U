@@ -24,9 +24,12 @@ $sql_querie = "SELECT * FROM tasks WHERE (UserID=$userID AND $column LIKE '%$q%'
 }else{
     $userID = $_SESSION['ID'];
     $sql_querie="SELECT * FROM tasks WHERE UserID='$userID' ORDER BY begindate desc";
+    
 }
 
 $db_result = $conn->query($sql_querie);
+
+
 
 //variable $i is for the numbering
 
@@ -66,20 +69,11 @@ foreach ($db_result as $row)
     '<a href="deletetask.php?del_task=' . $row['id'] . '"> x' . '</a>' .
 
     '</td>' .
-    '<td>' .
-  '<input type="checkbox">' .
-  '<label></label>'.
-'</td>' .
 
-'<td>' .
-  '<input type="checkbox" >' .
-  '<label></label>' .
-'</td>' .
-   
     '</tr>' .
-    
-    '<tbody>' .
-    '</div></div>';
 
+    '<tbody>' .
+
+    '</div></div>';
 
 }
