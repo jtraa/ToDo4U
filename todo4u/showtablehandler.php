@@ -61,21 +61,13 @@ foreach ($db_result as $row)
     '<a href="updatetask.php?upd_task=' . $row['id'] . '"> edit' . '</a>' .
     '</td>' .
 
-
 // Delete class, link to deletetask.php and to del_task, to delete the row in the table
 
     '<td class="delete">' .
-
     '<a href="deletetask.php?del_task=' . $row['id'] . '"> x' . '</a>' .
-
     '</td>' .
-
     '</tr>' .
-
     '<tbody>' .
-
     '</div></div>';
-
-
-    
+   
 }

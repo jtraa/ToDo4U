@@ -42,7 +42,7 @@ session_start();
         <input type="date" name="begindate" min="2015-01-01" value=<?php echo $dateoftoday; ?> required>
             <br>
         Completed <br>
-        <input type="date" name="date" min="2015-01-01" required><br><br>
+        <input type="date" name="date" min="2019-01-01" required><br><br>
 
         
 
