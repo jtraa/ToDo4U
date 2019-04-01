@@ -1,7 +1,8 @@
 <?php
 
 
-include 'dbconnection.php';
+include 'includes/dbh.inc.php';
+
 
 if (isset($_GET['del_task'])) {
     $id = $_GET['del_task'];

@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,13 +22,14 @@
         </div>
         <div id="line">
         </div>
+        
         <form autocomplete="off" class="loginForm" action="login-handler.php" method="POST"> <br>
             Name or Mail: <br>
             <input type="text" id="user_email" name="user_email" autofocus required/><br>
             Password: <br>
             <input type="password" id="user_password" name="user_password" required/><br><br>
            
-                <input type="submit" value="LOGIN" id="loginknop">
+                <input type="submit" value="LOGIN" class="btn btn-info" id="loginknop"/>
            
             <br>
         </form>
@@ -30,7 +37,7 @@
     </div>
     </div>
     <br><br><br><br>
-    <div id="registreer">
+        <div id="registreer">
         <div id="titel">
            <strong> REGISTER </strong>
         </div>

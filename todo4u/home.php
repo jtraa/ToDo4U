@@ -1,5 +1,8 @@
 <?php
 // Variable $dateoftoday: Gets the date of today for the form
+include 'includes/dbh.inc.php';
+include 'includes/show.inc.php';
+
 $dateoftoday = date('Y-m-d');
 session_start();
 ?>
@@ -17,8 +20,10 @@ session_start();
 <body>
     <div style="float:right" class="welcomemessage">
     <?php echo "Welcome " . ($_SESSION['name']) . ", this is your notelist!" . '<br>' .
-    '<a style="text-decoration: none; float: right;" href="logouthandler.php">' . "LOGOUT" . '</a>' ?>
+    '<a style="text-decoration: none; float: right;"href="logouthandler.php"/>' . "LOGOUT" . '</a>' ?>
     </div><br><br>
+
+    
     <div class="heading">
        <center> <h1> New Task </h1> </center>
   </div>
@@ -47,7 +52,13 @@ session_start();
     </center>
     <br>
 
-   
+    <?php 
+        $object = new Show;
+        echo 'This is a task of another user: <br>' . 
+        $object->ReadOnlyWithOOP();  
+        
+        ?>
+    <br><br>
 
 
 

@@ -31,7 +31,7 @@
         
     } else{
         die('failure');
-        header('Location: http://todo4u.jelletraa.com/home.php');
+        header('Location: home.php');
     }
    
    
