@@ -91,8 +91,7 @@ session_start();
                 <th>Updated</th>
                 <th>Edit</th>
                 <th>Delete</th>
-                <th>Done</th>
-                <th>Delete Multiple</th>
+
             </tr>
         </thead>
   
