@@ -1,7 +1,7 @@
 <?php
 
 
-include 'includes/dbh.inc.php';
+include 'dbconnection.php';
 
 
 if (isset($_GET['del_task'])) {
