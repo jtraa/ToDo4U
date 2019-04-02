@@ -1,32 +1,37 @@
 <?php
 
+include_once 'includes/dbh.inc.php';
+
 class User{
 
-    public function __construct($dsn){
-        $this->database = $dsn;
-    }
+    private $name;
+    private $email;
+
+    public function __set($property, $value){
+        $this->$property = $value;
+    }   
+
+   public function register($password){
+
+    $conn =  new Dbh;
+    $conn->connect();
 
 
-
-
-    public function register($name, $email, $password){
-        
-        try {
-                $sql = "INSERT INTO users (name, email, password)
-                VALUES ('$name', '$email', '$password')";
+    try {
+        $sql = "INSERT INTO users (name, email, password)
+                VALUES ('$this->name', '$this->email', '$password')";
                 
-                // use exec() because no results are returned
-                $conn->connect($sql);
+        // use exec() because no results are returned
+        $conn->prepare($sql);
+        $conn->execute();
                 
             }
-        catch(PDOException $e)
-            {
-                
-            }
-        
-        $conn = null;
-    
-          
+    catch(PDOException $e)
+        {
+            echo "Register Failed";
         }
+        
+    $conn = null; 
+        
     }
-
+}
