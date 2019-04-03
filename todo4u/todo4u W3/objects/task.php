@@ -1,11 +1,12 @@
 <?php
-class Product{
+
+class Task{
  
     // database connection and table name
     private $conn;
     private $table_name = "tasks";
  
-    // object properties
+    // object properties -> public, privated, protected: waarom welke?
     public $id;
     public $task;
     public $note;
@@ -17,14 +18,14 @@ class Product{
         $this->conn = $db;
     }
  
-    // create product
-    function create(){
+    // create task with function create()
+    public function create(){
         
-        //write query
+        //Insert Query for creating tasks
         $query = 
-                "INSERT INTO " . $this->table_name . " (
-                `id`, `UserID`, `task`, `note`, `begindate`, `date`, `lastupdated`)
-        VALUES (NULL, 11, :task, :note, :begindate, :date, :lastupdated)";
+                "INSERT INTO " . $this->table_name .
+                    "(`id`, `UserID`, `task`, `note`, `begindate`, `date`, `lastupdated`)
+                        VALUES (NULL, 11, :task, :note, :begindate, :date, :lastupdated)";
 
         $stmt = $this->conn->prepare($query);
  
@@ -52,5 +53,34 @@ class Product{
         }
  
     }
+
+    public function readAll($from_record_num, $records_per_page){
+ 
+        $query = "SELECT
+                    task, note, begindate, date, lastupdated
+                FROM
+                    " . $this->table_name . "
+                ORDER BY
+                    date ASC
+                LIMIT
+                    {$from_record_num}, {$records_per_page}";
+     
+        $stmt = $this->conn->prepare( $query );
+        $stmt->execute();
+     
+        return $stmt;
+    }
+        // used for paging products
+    public function countAll(){
+ 
+        $query = "SELECT id FROM " . $this->table_name . "";
+ 
+        $stmt = $this->conn->prepare( $query );
+        $stmt->execute();
+ 
+        $num = $stmt->rowCount();
+ 
+        return $num;
+}
 }
 ?>

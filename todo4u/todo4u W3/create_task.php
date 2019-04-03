@@ -1,22 +1,22 @@
 <?php
 
-// include database and object files
+// include the files
 include_once 'config/database.php';
 include_once 'objects/task.php';
  
-// get database connection
+// get database connection with database class
 $database = new Database();
 $db = $database->getConnection();
  
-// pass connection to objects
-$product = new Product($db);
+// connect connection to objects
+$product = new Task($db);
 
-// set page headers
+// header of the page
 $page_title = "Create Task";
 include_once "layout_header.php";
  
 echo "<div class='right-button-margin'>";
-    echo "<a href='index.php' class='btn btn-default pull-right'>Read Products</a>";
+    echo "<a href='index.php' class='btn btn-default pull-right'>Show Tasks</a>";
 echo "</div>";
  
 ?>
@@ -25,7 +25,6 @@ echo "</div>";
 if($_POST){ 
      
     // set product property values
-    $product->id=$_POST['id'];
     $product->task = $_POST['task'];
     $product->note = $_POST['note'];
     $product->begindate = $_POST['begindate'];
@@ -44,17 +43,12 @@ if($_POST){
 }
 ?>
  
-<!-- HTML form for creating a product -->
+<!-- Form for creating a product -->
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
  
     <table class='table table-hover table-responsive table-bordered'>
 
-        <tr>
-            <td>ID</td>
-            <td><input type='text' name='id' class='form-control' /></td>
-        </tr>
-
-
+        
         <tr>
             <td>Task</td>
             <td><input type='text' name='task' class='form-control' /></td>
@@ -86,5 +80,5 @@ if($_POST){
 </form>
 <?php
  
-// footer
+// include footer
 include_once "layout_footer.php";
