@@ -81,6 +81,57 @@ class Task{
         $num = $stmt->rowCount();
  
         return $num;
-}
+    }
+    function readOne(){
+ 
+        $query = "SELECT
+                    id, task, note, begindate, date, lastupdated
+                FROM
+                    " . $this->table_name . "
+                WHERE
+                    id = ?
+                LIMIT
+                    0,1";
+        
+        $stmt = $this->conn->prepare( $query );
+        $stmt->bindParam(1, $this->id);
+        $stmt->execute();
+        
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        $this->task = $row['task'];
+        $this->note = $row['note'];
+        $this->begindate = $row['begindate'];
+        $this->date = $row['date'];
+        $this->lastupdated = $row['lastupdated'];
+    }
+
+    function update(){
+ 
+        $query = "UPDATE tasks SET `task` = :task, `note` = :note, `date` = :date , `begindate` = :begindate WHERE `id` = :id";
+     
+        $stmt = $this->conn->prepare($query);
+     
+        // posted values
+        $this->task=htmlspecialchars(strip_tags($this->task));
+        $this->note=htmlspecialchars(strip_tags($this->note));
+        $this->date=htmlspecialchars(strip_tags($this->date));
+        $this->begindate=htmlspecialchars(strip_tags($this->begindate));
+     
+        // bind parameters
+        $stmt->bindParam(':task', $this->task);
+        $stmt->bindParam(':note', $this->note);
+        $stmt->bindParam(':date', $this->date);
+        $stmt->bindParam(':begindate', $this->begindate);
+        $stmt->bindParam(':id', $this->id);
+     
+        // execute the query
+        if($stmt->execute()){
+            return true;
+        }
+     
+        return false;
+         
+    }
 }
 ?>
