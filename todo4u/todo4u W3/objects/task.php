@@ -57,7 +57,7 @@ class Task{
     public function readAll($from_record_num, $records_per_page){
  
         $query = "SELECT
-                    task, note, begindate, date, lastupdated
+                    id, task, note, begindate, date, lastupdated
                 FROM
                     " . $this->table_name . "
                 ORDER BY

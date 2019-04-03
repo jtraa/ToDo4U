@@ -41,6 +41,7 @@ if($num>0){
             echo "<th>Begin date</th>";
             echo "<th>End date</th>";
             echo "<th>Last Updated</th>";
+            echo "<th>Read Task</th> <th>Edit Task</th> <th> Delete Task</th>";
         echo "</tr>";
  
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -55,17 +56,19 @@ if($num>0){
                 echo "<td>{$lastupdated}</td>";
                 echo "<td>";
                 //read, edit and delete buttons
-                // echo "<a href='read_one.php?id={$id}' class='btn btn-primary left-margin'>
-                // <span class='glyphicon glyphicon-list'></span> Read
-                // </a>
+                echo "<a href='read_one.php?id={$id}' class='btn btn-primary left-margin'>
+                <span class='glyphicon glyphicon-list'></span> Read
+                </a> </td>";
+                echo "<td>";
 
-                // <a href='update_product.php?id={$id}' class='btn btn-info left-margin'>
-                // <span class='glyphicon glyphicon-edit'></span> Edit
-                // </a>
-
-                // <a delete-id='{$id}' class='btn btn-danger delete-object'>
-                // <span class='glyphicon glyphicon-remove'></span> Delete
-                // </a>";
+                echo "<a href='update_task.php?id={$id}' class='btn btn-info left-margin'>
+                <span class='glyphicon glyphicon-edit'></span> Edit
+                </a> </td>";
+                
+                echo "<td>";
+                echo "<a delete-id='{$id}' class='btn btn-danger delete-object'>
+                <span class='glyphicon glyphicon-remove'></span> Delete
+                </a>";
                 echo "</td>";
  
             echo "</tr>";
@@ -74,7 +77,7 @@ if($num>0){
  
     echo "</table>";
  
-    // the page where this paging is used
+// the page where this paging is used
 $page_url = "index.php?";
  
 // count all products in the database to calculate total pages
