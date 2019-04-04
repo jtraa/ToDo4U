@@ -10,18 +10,18 @@ if($_POST){
     $database = new Database();
     $db = $database->getConnection();
  
-    // prepare product object
+    // prepare task object
     $product = new Task($db);
      
-    // set product id to be deleted
+    // set task id to be deleted
     $product->id = $_POST['object_id'];
      
-    // delete the product
+    // delete the task
     if($product->delete()){
         echo "Task was deleted.";
     }
      
-    // if unable to delete the product
+    // if unable to delete the task
     else{
         echo "Unable to delete task.";
     }
