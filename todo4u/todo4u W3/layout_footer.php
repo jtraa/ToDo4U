@@ -31,12 +31,12 @@ $(document).on('click', '.delete-object', function(){
         callback: function (result) {
  
             if(result==true){
-                $.post('delete_product.php', {
+                $.post('delete_task.php', {
                     object_id: id
                 }, function(data){
                     location.reload();
                 }).fail(function() {
-                    alert('Unable to delete.');
+                    alert('Unable to delete task.');
                 });
             }
         }
