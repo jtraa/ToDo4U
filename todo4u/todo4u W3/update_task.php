@@ -46,8 +46,18 @@ if($_POST){
         echo "</div>";
     }
 }
-?>
+
+// set page header
+$page_title = "Update Task";
+include_once "layout_header.php";
+
+echo "<div class='right-button-margin'>";
+    echo "<a href='index.php' class='btn btn-default pull-right'>Read Tasks</a>";
+echo "</div>";
  
+
+?>
+
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"] . "?id={$id}");?>" method="post">
     <table class='table table-hover table-responsive table-bordered'>
  
@@ -88,14 +98,9 @@ if($_POST){
 </form>
 <?php
  
-// set page header
-$page_title = "Update Task";
-include_once "layout_header.php";
+
  
-echo "<div class='right-button-margin'>";
-    echo "<a href='index.php' class='btn btn-default pull-right'>Read Tasks</a>";
-echo "</div>";
- 
+
 // set page footer
 include_once "layout_footer.php";
 ?>
