@@ -26,7 +26,7 @@
             <?php
             // check if users / customer was logged in
 // if user was logged in, show "Edit Profile", "Orders" and "Logout" options
-if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true && $_SESSION['access_level']=='Customer'){
+if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true){
     ?>
     <ul class="nav navbar-nav navbar-right">
         <li <?php echo $page_title=="Edit Profile" ? "class='active'" : ""; ?>>
