@@ -1,27 +1,27 @@
 <?php
-// get ID of the product to be edited
+// get ID of the product to be edited 
 $id = isset($_GET['id']) ? $_GET['id'] : die('ERROR: missing ID.');
  
-// include database and object files
+// include database and object files //autoload classes // get database connection
 include_once 'config/database.php';
 
-//autoload classes
+
 spl_autoload_register(function($className) {
 	include_once $_SERVER['DOCUMENT_ROOT'] . '/todo4u/todo4u/todo4uW3/objects/' . $className . '.php';
 });
- 
-// get database connection
+
+
 $database = new Database();
 $db = $database->getConnection();
  
-// prepare objects
-$product = new Task($db);
- 
-// set ID property of product to be edited
-$product->id = $id;
- 
-// read the details of product to be edited
-$product->readOne();
+// prepare objects // set ID property of product to be edited // read the details of product to be edited
+$tasks = new Task($db);
+
+
+$tasks->id = $id; 
+
+
+$tasks->readOne();
  
 ?>
 
@@ -30,14 +30,14 @@ $product->readOne();
 if($_POST){
  
     // set product property values
-    $product->task = $_POST['task'];
-    $product->note = $_POST['note'];
-    $product->begindate = $_POST['begindate'];
-    $product->date = $_POST['date'];
-    $product->lastupdated = $_POST['lastupdated'];
+    $tasks->task = $_POST['task'];
+    $tasks->note = $_POST['note'];
+    $tasks->begindate = $_POST['begindate'];
+    $tasks->date = $_POST['date'];
+    $tasks->lastupdated = $_POST['lastupdated'];
  
     // update the product
-    if($product->update()){
+    if($tasks->update()){
         echo "<div class='alert alert-success alert-dismissable'>";
             echo "Product was updated.";
         echo "</div>";
@@ -67,27 +67,27 @@ echo "</div>";
  
         <tr>
             <td>Task</td>
-            <td><input type='text' name='task' value='<?php echo $product->task; ?>' class='form-control' /></td>
+            <td><input type='text' name='task' value='<?php echo $tasks->task; ?>' class='form-control' /></td>
         </tr>
 
         <tr>
             <td>Description</td>
-            <td><textarea name='note' class='form-control'><?php echo $product->note; ?></textarea></td>
+            <td><textarea name='note' class='form-control'><?php echo $tasks->note; ?></textarea></td>
         </tr>
 
         <tr>
             <td>Begin date</td>
-            <td><input type='text' name='begindate' value='<?php echo $product->begindate; ?>' class='form-control' /></td>
+            <td><input type='text' name='begindate' value='<?php echo $tasks->begindate; ?>' class='form-control' /></td>
         </tr>
  
         <tr>
             <td>End date</td>
-            <td><input type='text' name='date' value='<?php echo $product->date; ?>' class='form-control' /></td>
+            <td><input type='text' name='date' value='<?php echo $tasks->date; ?>' class='form-control' /></td>
         </tr>
  
         <tr>
             <td></td>
-            <td><input type='text' name='lastupdated' value='<?php echo $product->lastupdated; ?>' class='form-control' /></td>
+            <td><input type='text' name='lastupdated' value='<?php echo $tasks->lastupdated; ?>' class='form-control' /></td>
         </tr>
  
 

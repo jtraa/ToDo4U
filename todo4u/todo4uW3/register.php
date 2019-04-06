@@ -1,29 +1,29 @@
 <?php
-// core configuration
+// core configuration // set page title // include login  // include classes //autoload classes
 include_once "config/core.php";
 
-// set page title
+
 $page_title = "Register";
 
-// include login checker
+
 include_once "login_checker.php";
 
-// include classes
+
 include_once 'config/database.php';
 
-//autoload classes
+
 spl_autoload_register(function($className) {
 	include_once $_SERVER['DOCUMENT_ROOT'] . '/todo4u/todo4u/todo4uW3/objects/' . $className . '.php';
 });
 
-//include_once "libs/php/utils.php";
+
 
 // include page header HTML
 include_once "layout_head.php";
 
 if($_POST){
 
-    // get database connection
+    // get database connection and User class
     $database = new Database();
     $db = $database->getConnection();
 

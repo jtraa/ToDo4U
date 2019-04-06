@@ -8,13 +8,13 @@ if($page>1){
     echo "</a></li>";
 }
  
-// calculate total pages
+// calculate total pages // range of links to show // display links to 'range of pages' around 'current page'
 $total_pages = ceil($total_rows / $records_per_page);
- 
-// range of links to show
+
+
 $range = 2;
- 
-// display links to 'range of pages' around 'current page'
+
+
 $initial_num = $page - $range;
 $condition_limit_num = ($page + $range)  + 1;
  

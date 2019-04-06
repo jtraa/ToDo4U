@@ -1,64 +1,54 @@
 <?php
-// core configuration
+// core configuration // set page title // include login checker // default to false
 include_once "config/core.php";
  
-// set page title
+
 $page_title = "Login";
- 
-// include login checker
+
+
 $require_login=false;
 include_once "login_checker.php";
  
-// default to false
+
 $access_denied=false;
  
-// if the login form was submitted
+// if the login form was submitted // include database //autoload classes
 if($_POST){
 
-    // include classes
-    include_once "config/database.php";
-
-
-//autoload classes
-spl_autoload_register(function($className) {
-	include_once $_SERVER['DOCUMENT_ROOT'] . '/todo4u/todo4u/todo4uW3/objects/' . $className . '.php';
-});
- 
-// get database connection
-$database = new Database();
-$db = $database->getConnection();
- 
-// initialize objects
-$user = new User($db);
- 
-// check if email and password are in the database
-$email=$_POST['email'];
-$password=$_POST['password'];
- 
-// check if email exists, also get user details using this emailExists() method
-//$user->login($email, $password)
- 
-// validate login
-if ($user->login($email, $password)){
     
-    // if it is, set the session value to true
-    $_SESSION['logged_in'] = true;
-    $_SESSION['id'] = $user->id;
-    $_SESSION['email'] = htmlspecialchars($user->email, ENT_QUOTES, 'UTF-8') ;
-    $_SESSION['name'] = $user->name;
-   // var_dump($user);
-   // var_dump($_POST);
+    include_once "config/database.php";
+    
+    spl_autoload_register(function($className) {
+	include_once $_SERVER['DOCUMENT_ROOT'] . '/todo4u/todo4u/todo4uW3/objects/' . $className . '.php';
+        });
+ 
+    // get database connection // get User methods
+    $database = new Database();
+    $db = $database->getConnection();
+    $user = new User($db);
+ 
+    // check if email and password are in the database
+    $email=$_POST['email'];
+    $password=$_POST['password'];
 
-    header("Location: {$home_url}indexlogin.php?action=login_success");
-    }
+
+    // validate login
+    if ($user->login($email, $password)){
+        
+        // if it is, set the session value to true
+        $_SESSION['logged_in'] = true;
+        $_SESSION['id'] = $user->id;
+        $_SESSION['email'] = htmlspecialchars($user->email, ENT_QUOTES, 'UTF-8') ;
+        $_SESSION['name'] = $user->name;
+    
+        header("Location: {$home_url}indexlogin.php?action=login_success");
+        }
 }
  
 // if username does not exist or password is wrong
 else{
     $access_denied=true;
-    //var_dump($user);
-    //var_dump($email_exists);
-    //var_dump($database);  
+
 }
 
 // include page header HTML
@@ -88,14 +78,14 @@ else if($action=='email_verified'){
     </div>";
 }
  
-// // tell the user if access denied
-// if($access_denied){
+// tell the user if access denied
+if($access_denied){
     
-//     echo "<div class='alert alert-danger margin-top-40' role='alert'>
-//         Access Denied.<br /><br />
-//         Your username or password maybe incorrect
-//     </div>";
-// }
+    echo "<div class='alert alert-danger margin-top-40' role='alert'>
+        Access Denied.<br /><br />
+        Your username or password maybe incorrect
+    </div>";
+}
 
     // actual HTML login form
     echo "<div class='account-wall'>";

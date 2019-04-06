@@ -1,27 +1,26 @@
 <?php
-// get ID of the product to be read
+// get ID of the product to be read // include database and object files //autoload classes
 $id = isset($_GET['id']) ? $_GET['id'] : die('ERROR: missing ID.');
- 
-// include database and object files
+
 include_once 'config/database.php';
 
-//autoload classes
+
 spl_autoload_register(function($className) {
 	include_once $_SERVER['DOCUMENT_ROOT'] . '/todo4u/todo4u/todo4uW3/objects/' . $className . '.php';
 });
  
-// get database connection
+// get database connection // prepare objects // set ID property of task to be read
 $database = new Database();
 $db = $database->getConnection();
+
+
+$tasks = new Task($db);
  
-// prepare objects
-$product = new Task($db);
- 
-// set ID property of product to be read
-$product->id = $id;
+
+$tasks->id = $id;
  
 // read the details of product to be read
-$product->readOne();
+$tasks->readOne();
 
 // set page headers
 $page_title = "Read Task";
@@ -39,27 +38,27 @@ echo "<table class='table table-hover table-responsive table-bordered'>";
  
     echo "<tr>";
         echo "<td>Task</td>";
-        echo "<td>{$product->task}</td>";
+        echo "<td>{$tasks->task}</td>";
     echo "</tr>";
  
     echo "<tr>";
         echo "<td>Description</td>";
-        echo "<td>{$product->note}</td>";
+        echo "<td>{$tasks->note}</td>";
     echo "</tr>";
  
     echo "<tr>";
         echo "<td>Begin Date</td>";
-        echo "<td>{$product->begindate}</td>";
+        echo "<td>{$tasks->begindate}</td>";
     echo "</tr>";
  
     echo "<tr>";
         echo "<td>End Date</td>";
-        echo "<td>{$product->date}</td>";
+        echo "<td>{$tasks->date}</td>";
     echo "</tr>";
 
     echo "<tr>";
         echo "<td>Last Updated</td>";
-       echo "<td>{$product->lastupdated}</td>";
+       echo "<td>{$tasks->lastupdated}</td>";
     echo "</tr>";
  
 echo "</table>";

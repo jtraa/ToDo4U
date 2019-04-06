@@ -1,13 +1,13 @@
 <?php
-// core configuration // set page title // include login checker
+// core configuration // set page title // include login checker // include page header HTML
 include_once "config/core.php";
 
 $page_title="Index";
 
 // $require_login=true;
-include_once "login_checker.php";
- 
-// include page header HTML
+include_once "login_checker.php"; 
+
+
 include_once 'layout_head.php';
  
 echo "<div class='col-md-12'>";
