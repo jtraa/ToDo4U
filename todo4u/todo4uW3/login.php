@@ -14,9 +14,15 @@ $access_denied=false;
  
 // if the login form was submitted
 if($_POST){
+
     // include classes
-include_once "config/database.php";
-include_once "objects/user.php";
+    include_once "config/database.php";
+
+
+//autoload classes
+spl_autoload_register(function($className) {
+	include_once $_SERVER['DOCUMENT_ROOT'] . '/todo4u/todo4u/todo4uW3/objects/' . $className . '.php';
+});
  
 // get database connection
 $database = new Database();
@@ -82,20 +88,20 @@ else if($action=='email_verified'){
     </div>";
 }
  
-// tell the user if access denied
-if($access_denied){
+// // tell the user if access denied
+// if($access_denied){
     
-    echo "<div class='alert alert-danger margin-top-40' role='alert'>
-        Access Denied.<br /><br />
-        Your username or password maybe incorrect
-    </div>";
-}
- 
+//     echo "<div class='alert alert-danger margin-top-40' role='alert'>
+//         Access Denied.<br /><br />
+//         Your username or password maybe incorrect
+//     </div>";
+// }
+
     // actual HTML login form
     echo "<div class='account-wall'>";
         echo "<div id='my-tab-content' class='tab-content'>";
             echo "<div class='tab-pane active' id='login'>";
-                echo "<br><center><img class='profile-img' src='images/login-icon.png'></center></br></br>";
+                echo "<br><center><img style='width: 60%; height: auto;' class='profile-img' src='images/login-icon.png'></center></br></br>";
                 echo "<form class='form-signin' action='" . htmlspecialchars($_SERVER["PHP_SELF"]) . "' method='post'>";
                     echo "<input type='text' name='email' class='form-control' placeholder='Email' required autofocus />";
                     echo "<input type='password' name='password' class='form-control' placeholder='Password' required />";

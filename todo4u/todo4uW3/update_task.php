@@ -4,7 +4,11 @@ $id = isset($_GET['id']) ? $_GET['id'] : die('ERROR: missing ID.');
  
 // include database and object files
 include_once 'config/database.php';
-include_once 'objects/task.php';
+
+//autoload classes
+spl_autoload_register(function($className) {
+	include_once $_SERVER['DOCUMENT_ROOT'] . '/todo4u/todo4u/todo4uW3/objects/' . $className . '.php';
+});
  
 // get database connection
 $database = new Database();

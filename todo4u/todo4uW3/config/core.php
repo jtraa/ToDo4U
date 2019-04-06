@@ -9,7 +9,7 @@ session_start();
 date_default_timezone_set('Europe/Amsterdam');
  
 // home page url
-$home_url="http://localhost/todo4u/todo4u/todo4u%20W3/";
+$home_url="http://localhost/todo4u/todo4u/todo4uW3/";
  
 // page given in URL parameter, default page is one
 $page = isset($_GET['page']) ? $_GET['page'] : 1;

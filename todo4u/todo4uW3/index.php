@@ -1,26 +1,29 @@
 <?php
 
-// page given in URL parameter, default page is one
+// page given in URL parameter, default page is one // set number of records per page // calculate for the query LIMIT clause
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
- 
-// set number of records per page
+
 $records_per_page = 5;
- 
-// calculate for the query LIMIT clause
+
 $from_record_num = ($records_per_page * $page) - $records_per_page;
- 
-// include database and object files
+
+
+// include database and object files plus //autoload classes
 include_once 'config/database.php';
-include_once 'objects/task.php';
- 
-// instantiate database and objects
+
+spl_autoload_register(function($className) {
+	include_once $_SERVER['DOCUMENT_ROOT'] . '/todo4u/todo4u/todo4uW3/objects/' . $className . '.php';
+});
+
+
+
 $database = new Database();
 $db = $database->getConnection();
  
-$product = new Task($db);
+$tasks = new Task($db);
 
 // query products
-$stmt = $product->readAll($from_record_num, $records_per_page);
+$stmt = $tasks->readAll($from_record_num, $records_per_page);
 $num = $stmt->rowCount();
 
 // set page header
@@ -81,7 +84,7 @@ if($num>0){
 $page_url = "index.php?";
  
 // count all products in the database to calculate total pages
-$total_rows = $product->countAll();
+$total_rows = $tasks->countAll();
  
 // paging buttons here
 include_once 'paging.php';

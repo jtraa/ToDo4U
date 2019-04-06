@@ -10,7 +10,12 @@ include_once "login_checker.php";
 
 // include classes
 include_once 'config/database.php';
-include_once 'objects/user.php';
+
+//autoload classes
+spl_autoload_register(function($className) {
+	include_once $_SERVER['DOCUMENT_ROOT'] . '/todo4u/todo4u/todo4uW3/objects/' . $className . '.php';
+});
+
 //include_once "libs/php/utils.php";
 
 // include page header HTML

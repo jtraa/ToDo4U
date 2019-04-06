@@ -1,12 +1,10 @@
 <?php
-// core configuration
+// core configuration // set page title // include login checker
 include_once "config/core.php";
- 
-// set page title
+
 $page_title="Index";
- 
-// include login checker
-$require_login=true;
+
+// $require_login=true;
 include_once "login_checker.php";
  
 // include page header HTML
@@ -22,6 +20,7 @@ echo "<div class='col-md-12'>";
         echo "<div class='alert alert-info'>";
             echo "<strong>Hi " . $_SESSION['name'] . ", welcome back!</strong>";
         echo "</div>";
+        // header('Location: index.php');
     }
  
     // if user is already logged in, shown when user tries to access the login page
@@ -34,10 +33,12 @@ echo "<div class='col-md-12'>";
     // content once logged in
     echo "<div class='alert alert-info'>";
         echo "Content when logged in will be here. For example, your premium products or services.";
+        echo "</br></br><a href='index.php'> Go to your task list</a>";
     echo "</div>";
  
 echo "</div>";
  
 // footer HTML and JavaScript codes
 include 'layout_foot.php';
+
 ?>
