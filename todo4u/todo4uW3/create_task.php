@@ -1,22 +1,21 @@
 <?php
 
-// include the files
+// include the files //autoload classes // get database connection with database class // connect connection to objects // header of the page
 include_once 'config/database.php';
 
 
-//autoload classes
+
 spl_autoload_register(function($className) {
 	include_once $_SERVER['DOCUMENT_ROOT'] . '/todo4u/todo4u/todo4uW3/objects/' . $className . '.php';
 });
- 
-// get database connection with database class
+
+
 $database = new Database();
 $db = $database->getConnection();
- 
-// connect connection to objects
-$product = new Task($db);
 
-// header of the page
+$tasks = new Task($db);
+
+
 $page_title = "Create Task";
 include_once "layout_header.php";
  
@@ -26,14 +25,15 @@ echo "</div>";
  
 ?>
 <?php 
-// if the form was submitted - PHP OOP CRUD Tutorial
+
+// if the form was submitted
 if($_POST){ 
      
     // set product property values
-    $product->task = $_POST['task'];
-    $product->note = $_POST['note'];
-    $product->begindate = $_POST['begindate'];
-    $product->date=$_POST['date'];
+    $tasks->task = $_POST['task'];
+    $tasks->note = $_POST['note'];
+    $tasks->begindate = $_POST['begindate'];
+    $tasks->date=$_POST['date'];
     
  
     // create the product
