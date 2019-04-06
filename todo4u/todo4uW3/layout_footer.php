@@ -32,7 +32,7 @@ $(document).on('click', '.delete-object', function(){
  
             if(result==true){
                 $.post('delete_task.php', {
-                    object_id: id
+                    task_id: id
                 }, function(data){
                     location.reload();
                 }).fail(function() {
