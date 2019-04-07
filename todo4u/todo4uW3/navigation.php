@@ -38,23 +38,7 @@
                 &nbsp;&nbsp;<span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
-                <li><a href="
-                <?php 
-                if (0==1) {
-
-                include_once 'config/database.php';
-                
-                spl_autoload_register(function($className) {
-                    include_once $_SERVER['DOCUMENT_ROOT'] . '/todo4u/todo4u/todo4uW3/objects/' . $className . '.php';
-                });
-                    $database = new Database();
-                    $db = $database = getConnection();
-
-                    $user = new User($db);  
-                    
-                    return logout();      
-            }
-                ?>">Logout</a></li>
+                <li><a href="logout.php <?php $home_url;?>">Logout</a></li>
             </ul>
         </li>
     </ul>
