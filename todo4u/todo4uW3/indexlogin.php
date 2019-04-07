@@ -4,14 +4,6 @@ include_once "config/core.php";
 
 $page_title="ToDo4U";
 
-
-
-
-
-
-
-
-
 include_once 'layout_head.php';
  
 echo "<div class='col-md-12'>";
