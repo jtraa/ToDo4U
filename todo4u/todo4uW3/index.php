@@ -31,16 +31,16 @@ $page_title = "Show Task(s)";
 include_once "layout_header.php";
  
 echo "<div class='right-button-margin'>";
-    echo "<a href='create_task.php' class='btn btn-default pull-right'>Create Task</a>";
+    echo "<a style='position: absolute; right:8.5%;' href='create_task.php' class='btn btn-default pull-right'>Create Task</a>";
 echo "</div>";
 
 // display the products if there are any
 if($num>0){
 
         echo '<form method="post" action="">'; 
-        echo '<input type="text"  style="width: 20%" name="q" placeholder="    Filter on" autocomplete="off">';
+        echo '<input type="text"  style="width: 18%" name="q" placeholder="    Filter On" autocomplete="off">';
         echo '<div class="form-group">';
-        echo '<select style="max-width: 20%" class="form-control" id="exampleFormControlSelect2" name="column" required>';
+        echo '<select style="max-width: 18%" class="form-control" id="exampleFormControlSelect2" name="column" required>';
         echo '<option value=""> Select Filter</option>';
         echo '<option value="task">Task</option>';
         echo '<option value="note">Note</option>';
@@ -48,8 +48,8 @@ if($num>0){
         echo '<option value="begindate">Begin date</option>';
         echo '<option value="date">End date</option>';
         echo '</select>';   
-        echo '<button type="submit" class="btn btn-default" name="submit" value="Find"> FIND </button>';
-        echo '</form> <br><br>';
+        echo '<button type="submit" style="width: 18%;" class="btn btn-default" name="submit" value="Find"> FIND </button>';
+        echo '</form>';
         echo '</div>';
 
         echo "<table class='table table-hover table-responsive table-bordered'>";

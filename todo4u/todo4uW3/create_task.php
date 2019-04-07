@@ -1,5 +1,7 @@
 <?php
 
+$dateoftoday = date('Y-m-d');
+
 // include the files //autoload classes // get database connection with database class // connect connection to objects // header of the page
 include_once 'config/database.php';
 
@@ -66,12 +68,12 @@ if($_POST){
 
         <tr>
             <td>Begin Date</td>
-            <td><input type='date' name='begindate' class='form-control'></textarea></td>
+            <td><input type='date' name='begindate' class='form-control' value='<?php echo $dateoftoday; ?>'></textarea></td>
         </tr>
 
         <tr>
             <td>End Date</td>
-            <td><input type='date' name='date' class='form-control'></textarea></td>
+            <td><input type='date' name='date' class='form-control'value='<?php echo $dateoftoday; ?>'></textarea></td>
         </tr>
  
         <tr>

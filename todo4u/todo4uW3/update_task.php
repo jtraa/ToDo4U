@@ -34,7 +34,7 @@ if($_POST){
     $tasks->note = $_POST['note'];
     $tasks->begindate = $_POST['begindate'];
     $tasks->date = $_POST['date'];
-    $tasks->lastupdated = $_POST['lastupdated'];
+
  
     // update the product
     if($tasks->update()){
@@ -77,19 +77,13 @@ echo "</div>";
 
         <tr>
             <td>Begin date</td>
-            <td><input type='text' name='begindate' value='<?php echo $tasks->begindate; ?>' class='form-control' /></td>
+            <td><input type='date' name='begindate' value='<?php echo $tasks->begindate; ?>' class='form-control' /></td>
         </tr>
  
         <tr>
             <td>End date</td>
-            <td><input type='text' name='date' value='<?php echo $tasks->date; ?>' class='form-control' /></td>
+            <td><input type='date' name='date' value='<?php echo $tasks->date; ?>' class='form-control' /></td>
         </tr>
- 
-        <tr>
-            <td></td>
-            <td><input type='text' name='lastupdated' value='<?php echo $tasks->lastupdated; ?>' class='form-control' /></td>
-        </tr>
- 
 
         <tr>
             <td></td>
