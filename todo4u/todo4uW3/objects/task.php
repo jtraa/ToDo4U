@@ -60,12 +60,13 @@ class Task{
                     id, task, note, begindate, date, lastupdated
                 FROM
                     " . $this->table_name . "
+                
                 ORDER BY
                     date ASC
                 LIMIT
                     {$from_record_num}, {$records_per_page}";
      
-        $stmt = $this->conn->prepare( $query );
+        $stmt = $this->conn->prepare($query);
         $stmt->execute();
      
         return $stmt;

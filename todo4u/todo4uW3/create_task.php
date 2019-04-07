@@ -37,7 +37,7 @@ if($_POST){
     
  
     // create the product
-    if($product->create()){
+    if($tasks->create()){
         echo "<div class='alert alert-success'>Product was created.</div>";
     }
  

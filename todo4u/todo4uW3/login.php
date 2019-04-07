@@ -43,13 +43,16 @@ if($_POST){
     
         header("Location: {$home_url}indexlogin.php?action=login_success");
         }
+        // if username does not exist or password is wrong
+    else{
+      $access_denied=true;
+        echo "<div class='alert alert-danger margin-top-40' role='alert'>
+        Access Denied.<br /><br />
+        Your username or password maybe incorrect </div>";
+}
 }
  
-// if username does not exist or password is wrong
-else{
-    $access_denied=true;
 
-}
 
 // include page header HTML
 include_once "layout_head.php";
@@ -78,14 +81,12 @@ else if($action=='email_verified'){
     </div>";
 }
  
-// tell the user if access denied
-if($access_denied){
+// // tell the user if access denied
+// if($access_denied){
     
-    echo "<div class='alert alert-danger margin-top-40' role='alert'>
-        Access Denied.<br /><br />
-        Your username or password maybe incorrect
-    </div>";
-}
+//     
+//     </div>";
+// }
 
     // actual HTML login form
     echo "<div class='account-wall'>";
