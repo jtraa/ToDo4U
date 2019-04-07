@@ -56,21 +56,37 @@ class Task{
 
     public function readAll($from_record_num, $records_per_page){
  
-        $query = "SELECT
-                    id, task, note, begindate, date, lastupdated
-                FROM
-                    " . $this->table_name . "
-                
-                ORDER BY
-                    date ASC
-                LIMIT
-                    {$from_record_num}, {$records_per_page}";
-     
+        if (isset($_POST['submit'])){
+            $q = $_POST['q'];
+            $column = $_POST['column'];
+        
+            if ($column == "" || ($column !="lastupdated" && $column != "date" && $column != "task" && $column != "begindate" && $column != "note"))
+            $column = "begindate";
+            
+        
+                $query = "SELECT * FROM  " . $this->table_name . "
+                 WHERE 
+                 $column LIKE '%$q%' 
+                 ORDER BY 
+                 $column asc 
+                 LIMIT 
+                 {$from_record_num}, {$records_per_page}";
+
+        //else statement for showing the table before filtering
+        }else{
+            $query="SELECT * FROM " . $this->table_name . "
+              ORDER BY begindate ASC  
+              LIMIT
+              {$from_record_num}, {$records_per_page}";
+            
+        }
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
      
         return $stmt;
     }
+
+
         // used for paging products
     public function countAll(){
  
