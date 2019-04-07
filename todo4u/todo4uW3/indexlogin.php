@@ -2,10 +2,14 @@
 // core configuration // set page title // include login checker // include page header HTML
 include_once "config/core.php";
 
-$page_title="Index";
+$page_title="ToDo4U";
 
-// $require_login=true;
-include_once "login_checker.php"; 
+
+
+
+
+
+
 
 
 include_once 'layout_head.php';
@@ -22,17 +26,11 @@ echo "<div class='col-md-12'>";
         echo "</div>";
         // header('Location: index.php');
     }
- 
-    // if user is already logged in, shown when user tries to access the login page
-    else if($action=='already_logged_in'){
-        echo "<div class='alert alert-info'>";
-            echo "<strong>You are already logged in.</strong>";
-        echo "</div>";
-    }
- 
+    
+    
     // content once logged in
     echo "<div class='alert alert-info'>";
-        echo "Content when logged in will be here. For example, your premium products or services.";
+        echo "Below you can click to your task list.";
         echo "</br></br><a href='index.php'> Go to your task list</a>";
     echo "</div>";
  

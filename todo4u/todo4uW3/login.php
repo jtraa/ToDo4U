@@ -6,9 +6,10 @@ include_once "config/core.php";
 $page_title = "Login";
 
 
-$require_login=false;
-include_once "login_checker.php";
- 
+// $require_login=false;
+
+
+
 
 $access_denied=false;
  
@@ -80,13 +81,6 @@ else if($action=='email_verified'){
         <strong>Your email address have been validated.</strong>
     </div>";
 }
- 
-// // tell the user if access denied
-// if($access_denied){
-    
-//     
-//     </div>";
-// }
 
     // actual HTML login form
     echo "<div class='account-wall'>";
