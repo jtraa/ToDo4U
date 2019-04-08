@@ -1,4 +1,6 @@
 <?php
+
+var_dump($_SESSION);
 // core configuration // set page title // include login checker // default to false
 include_once "config/core.php";
  
@@ -39,6 +41,7 @@ if($_POST){
         
         // if it is, set the session value to true
         $_SESSION['logged_in'] = true;
+
         $_SESSION['id'] = $user->id;
         $_SESSION['email'] = htmlspecialchars($user->email, ENT_QUOTES, 'UTF-8') ;
         $_SESSION['name'] = $user->name;

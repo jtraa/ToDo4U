@@ -1,4 +1,6 @@
 <?php
+
+var_dump($_SESSION);
 // core configuration // set page title // include login checker // include page header HTML
 include_once "config/core.php";
 

@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 var_dump($_SESSION);
 // page given in URL parameter, default page is one // set number of records per page // calculate for the query LIMIT clause
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
