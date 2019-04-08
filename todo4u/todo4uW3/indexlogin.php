@@ -17,16 +17,13 @@ echo "<div class='col-md-12'>";
     if($action=='login_success'){
         $id = $_SESSION['ID'];
         echo "<div class='alert alert-info'>";
-            echo "<strong>Hi " . $_SESSION['email'] . ", welcome back!</strong>";
+            echo "<strong>Hi " . $_SESSION['name'] . ", welcome back!</strong>";
         echo "</div>";
-        var_dump($_SESSION);
-        // header('Location: index.php');
     }
-    
     
     // content once logged in
     echo "<div class='alert alert-info'>";
-        echo "Below you can click to your task list.";
+        echo "Below you can click to go to your task list.";
         echo "</br></br><a href='index.php'> Go to your task list</a>";
     echo "</div>";
  

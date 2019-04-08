@@ -20,40 +20,45 @@ class Task{
  
     // create task with function create()
     public function create(){
-        include_once 'config/core.php';
-            $userID = $_SESSION['ID'];
-        //Insert Query for creating tasks
-        $query = 
-                "INSERT INTO " . $this->table_name .
-                    "(`id`, `UserID`, `task`, `note`, `begindate`, `date`, `lastupdated`)
-                        VALUES (NULL, $userID, :task, :note, :begindate, :date, :lastupdated)";
-
-        $stmt = $this->conn->prepare($query);
- 
-        // posted values
-        $this->task=htmlspecialchars(strip_tags($this->task));
-        $this->note=htmlspecialchars(strip_tags($this->note));
-        $this->begindate=htmlspecialchars(strip_tags($this->begindate));
-        $this->date=htmlspecialchars(strip_tags($this->date));
-        
-        // to get time-stamp for 'created' field
-        $this->timestamp = date('Y-m-d H:i:s');
- 
-        // bind values 
-        $stmt->bindParam(":task", $this->task);
-        $stmt->bindParam(":note", $this->note);
-        $stmt->bindParam(":lastupdated", $this->timestamp);
-        $stmt->bindParam(":begindate", $this->begindate);
-        $stmt->bindParam(":date", $this->date);
- 
-        if($stmt->execute()){
-            return true;
+        if(!isset($_SESSION['logged_in'])){
+            header('Location:login.php');
             
         }else{
-            return false;
+            $userID = $_SESSION['ID'];
+           
+            //Insert Query for creating tasks
+            $query = 
+                    "INSERT INTO " . $this->table_name .
+                        "(`id`, `UserID`, `task`, `note`, `begindate`, `date`, `lastupdated`)
+                            VALUES (NULL, $userID, :task, :note, :begindate, :date, :lastupdated)";
+
+            $stmt = $this->conn->prepare($query);
+
+            // posted values
+            $this->task=htmlspecialchars(strip_tags($this->task));
+            $this->note=htmlspecialchars(strip_tags($this->note));
+            $this->begindate=htmlspecialchars(strip_tags($this->begindate));
+            $this->date=htmlspecialchars(strip_tags($this->date));
+
+            // to get time-stamp for 'created' field
+            $this->timestamp = date('Y-m-d H:i:s');
+
+            // bind values 
+            $stmt->bindParam(":task", $this->task);
+            $stmt->bindParam(":note", $this->note);
+            $stmt->bindParam(":lastupdated", $this->timestamp);
+            $stmt->bindParam(":begindate", $this->begindate);
+            $stmt->bindParam(":date", $this->date);
+
+            if($stmt->execute()){
+                return true;
+
+            }else{
+                return false;
+            }
         }
- 
     }
+    
 
     public function readAll($from_record_num, $records_per_page){
  
@@ -65,7 +70,7 @@ class Task{
             if ($column == "" || ($column !="lastupdated" && $column != "date" && $column != "task" && $column != "begindate" && $column != "note"))
             $column = "begindate";
             
-            include_once 'config/core.php';
+           
             $userID = $_SESSION['ID'];
         
                 $query = "SELECT * FROM  " . $this->table_name . "
@@ -79,7 +84,6 @@ class Task{
 
         //else statement for showing the table before filtering
         }else{
-            include_once 'config/core.php';
             $userID = $_SESSION['ID'];
 
             $query="SELECT * FROM " . $this->table_name . "
@@ -100,7 +104,6 @@ class Task{
         // used for paging products
     public function countAll(){
  
-        include_once 'config/core.php';
             $userID = $_SESSION['ID'];
 
         $query = "SELECT id FROM " . $this->table_name . " WHERE 
@@ -114,7 +117,7 @@ class Task{
         return $num;
     }
     function readOne(){
-            
+
         $query = "SELECT
                     id, task, note, begindate, date, lastupdated
                 FROM

@@ -11,6 +11,7 @@ $from_record_num = ($records_per_page * $page) - $records_per_page;
 
 // include database and object files plus //autoload classes
 include_once 'config/database.php';
+include_once 'config/core.php';
 
 spl_autoload_register(function($className) {
 	include_once $_SERVER['DOCUMENT_ROOT'] . '/todo4u/todo4u/todo4uW3/objects/' . $className . '.php';
@@ -27,16 +28,23 @@ $tasks = new Task($db);
 $stmt = $tasks->readAll($from_record_num, $records_per_page);
 $num = $stmt->rowCount();
 
+
 // set page header
+
 $page_title = "Show Task(s)";
+
+include_once 'navigation.php';
+
 include_once "layout_header.php";
+
+
  
 echo "<div class='right-button-margin'>";
-    echo "<a style='position: absolute; width: 100px; right:8.5%;' href='create_task.php' class='btn btn-default pull-right'>Create Task</a>";
+    echo "<a style='position: absolute; width: 100px; right:8.5%; top: 33%;' href='create_task.php' class='btn btn-default pull-right'>Create Task</a>";
 echo "</div>";
 
 echo "<div class='right-button-margin'>";
-    echo "<a style='position: absolute; width: 100px; right:8.5%; top: 23%;' href='index.php' class='btn btn-default pull-right'>Reset Filter</a>";
+    echo "<a style='position: absolute; width: 100px; right:8.5%; top: 28%;' href='index.php' class='btn btn-default pull-right'>Reset Filter</a>";
 echo "</div>";
 
 // display the products if there are any

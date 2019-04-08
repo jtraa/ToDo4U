@@ -4,6 +4,7 @@ $dateoftoday = date('Y-m-d');
 
 // include the files //autoload classes // get database connection with database class // connect connection to objects // header of the page
 include_once 'config/database.php';
+include_once 'config/core.php';
 
 
 
@@ -40,12 +41,12 @@ if($_POST){
  
     // create the product
     if($tasks->create()){
-        echo "<div class='alert alert-success'>Product was created.</div>";
+        echo "<div class='alert alert-success'>Task was created.</div>";
     }
  
     // if unable to create the product, tell the user
     else{
-        echo "<div class='alert alert-danger'>Unable to create product.</div>";
+        echo "<div class='alert alert-danger'>Unable to create task.</div>";
     }
 }
 ?>
