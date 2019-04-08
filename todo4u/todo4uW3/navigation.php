@@ -12,7 +12,7 @@
             </button>
  
             <!-- Site name -->
-            <a class="navbar-brand" href="<?php echo $home_url; ?>">ToDo4U</a>
+            <a class="navbar-brand" href="">ToDo4U</a>
         </div>
  
         <div class="navbar-collapse collapse">
