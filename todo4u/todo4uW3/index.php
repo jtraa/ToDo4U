@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+var_dump($_SESSION);
 // page given in URL parameter, default page is one // set number of records per page // calculate for the query LIMIT clause
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 
@@ -38,17 +39,17 @@ echo "</div>";
 if($num>0){
 
         echo '<form method="post" action="">'; 
-        echo '<input type="text"  style="width: 18%" name="q" placeholder="    Filter On" autocomplete="off">';
+        echo '<input type="text"  style="width: 200px;" name="q" placeholder="    Filter On" autocomplete="off">';
         echo '<div class="form-group">';
-        echo '<select style="max-width: 18%" class="form-control" id="exampleFormControlSelect2" name="column" required>';
-        echo '<option value=""> Select Filter</option>';
+        echo '<select style= "max-width: 200px;" class="form-control" id="exampleFormControlSelect2" name="column" required>';
+        echo '<option value=""> Order By</option>';
         echo '<option value="task">Task</option>';
         echo '<option value="note">Note</option>';
         echo '<option value="lastupdated">Updated date</option>';
         echo '<option value="begindate">Begin date</option>';
         echo '<option value="date">End date</option>';
         echo '</select>';   
-        echo '<button type="submit" style="width: 18%;" class="btn btn-default" name="submit" value="Find"> FIND </button>';
+        echo '<button type="submit" style="width: 200px;" class="btn btn-default" name="submit" value="Find"> FIND </button>';
         echo '</form>';
         echo '</div>';
 

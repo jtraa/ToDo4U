@@ -151,7 +151,7 @@ class Task{
          
     }
     // delete the product
-    function delete(){
+    public function delete(){
  
         $query = "DELETE FROM " . $this->table_name . " WHERE id = ?";
         
@@ -163,6 +163,9 @@ class Task{
         }else{
             return false;
         }
-}
+    }
+    public function CheckEndDateIfPassed(){
+        
+    }
 }
 ?>
