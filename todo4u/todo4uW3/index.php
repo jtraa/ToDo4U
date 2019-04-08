@@ -1,6 +1,6 @@
 <?php
 
-var_dump($_SESSION);
+
 // page given in URL parameter, default page is one // set number of records per page // calculate for the query LIMIT clause
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 
@@ -32,7 +32,11 @@ $page_title = "Show Task(s)";
 include_once "layout_header.php";
  
 echo "<div class='right-button-margin'>";
-    echo "<a style='position: absolute; right:8.5%;' href='create_task.php' class='btn btn-default pull-right'>Create Task</a>";
+    echo "<a style='position: absolute; width: 100px; right:8.5%;' href='create_task.php' class='btn btn-default pull-right'>Create Task</a>";
+echo "</div>";
+
+echo "<div class='right-button-margin'>";
+    echo "<a style='position: absolute; width: 100px; right:8.5%; top: 23%;' href='index.php' class='btn btn-default pull-right'>Reset Filter</a>";
 echo "</div>";
 
 // display the products if there are any
