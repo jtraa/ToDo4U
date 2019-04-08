@@ -112,7 +112,8 @@ include_once 'paging.php';
  
 // tell the user there are no products
 else{
-    echo "<div class='alert alert-info'>No products found.</div>";
+    
+    echo "<br><br><br><center><div style='width:300px;' class='alert alert-info'>No tasks found. <br> Make a task with Create Task</div></center>";
 }
  
 // set page footer

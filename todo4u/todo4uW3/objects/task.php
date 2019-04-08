@@ -13,19 +13,20 @@ class Task{
     public $begindate;
     public $date;   
     public $lastupdated;
- 
+    
     public function __construct($db){
         $this->conn = $db;
     }
  
     // create task with function create()
     public function create(){
-        
+        include_once 'config/core.php';
+            $userID = $_SESSION['ID'];
         //Insert Query for creating tasks
         $query = 
                 "INSERT INTO " . $this->table_name .
                     "(`id`, `UserID`, `task`, `note`, `begindate`, `date`, `lastupdated`)
-                        VALUES (NULL, 11, :task, :note, :begindate, :date, :lastupdated)";
+                        VALUES (NULL, $userID, :task, :note, :begindate, :date, :lastupdated)";
 
         $stmt = $this->conn->prepare($query);
  
@@ -59,14 +60,18 @@ class Task{
         if (isset($_POST['submit'])){
             $q = $_POST['q'];
             $column = $_POST['column'];
+            
         
             if ($column == "" || ($column !="lastupdated" && $column != "date" && $column != "task" && $column != "begindate" && $column != "note"))
             $column = "begindate";
             
+            include_once 'config/core.php';
+            $userID = $_SESSION['ID'];
         
                 $query = "SELECT * FROM  " . $this->table_name . "
                  WHERE 
-                 $column LIKE '%$q%' 
+                 (UserID = $userID AND
+                 $column LIKE '%$q%')
                  ORDER BY 
                  $column asc 
                  LIMIT 
@@ -74,10 +79,15 @@ class Task{
 
         //else statement for showing the table before filtering
         }else{
+            include_once 'config/core.php';
+            $userID = $_SESSION['ID'];
+
             $query="SELECT * FROM " . $this->table_name . "
-              ORDER BY begindate ASC  
-              LIMIT
-              {$from_record_num}, {$records_per_page}";
+                WHERE 
+                UserID = $userID
+                ORDER BY begindate ASC  
+                LIMIT
+                {$from_record_num}, {$records_per_page}";
             
         }
         $stmt = $this->conn->prepare($query);
@@ -90,7 +100,11 @@ class Task{
         // used for paging products
     public function countAll(){
  
-        $query = "SELECT id FROM " . $this->table_name . "";
+        include_once 'config/core.php';
+            $userID = $_SESSION['ID'];
+
+        $query = "SELECT id FROM " . $this->table_name . " WHERE 
+        UserID = $userID";
  
         $stmt = $this->conn->prepare( $query );
         $stmt->execute();
@@ -100,7 +114,7 @@ class Task{
         return $num;
     }
     function readOne(){
- 
+            
         $query = "SELECT
                     id, task, note, begindate, date, lastupdated
                 FROM
@@ -165,7 +179,7 @@ class Task{
         }
     }
     public function CheckEndDateIfPassed(){
-        
+
     }
 }
 ?>

@@ -19,8 +19,8 @@ $access_denied=false;
  
 // if the login form was submitted // include database //autoload classes
 if($_POST){
-
     
+    include_once "config/core.php";
     include_once "config/database.php";
     
     spl_autoload_register(function($className) {
@@ -41,12 +41,9 @@ if($_POST){
     if ($user->login($email, $password)){
         
         // if it is, set the session value to true
-        $_SESSION['logged_in'] = true;
 
-        $_SESSION['id'] = $user->id;
-        $_SESSION['email'] = htmlspecialchars($user->email, ENT_QUOTES, 'UTF-8') ;
-        $_SESSION['name'] = $user->name;
-    
+        
+        
         header("Location: {$home_url}indexlogin.php?action=login_success");
         }
         // if username does not exist or password is wrong

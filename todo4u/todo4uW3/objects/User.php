@@ -1,4 +1,5 @@
 <?php
+
 // 'user' object
 class User{
  
@@ -55,10 +56,12 @@ class User{
 
         if ($db_result->rowCount()==1){
             foreach($db_result as $row){
-                $firstname = $row['email'];
+                $email = $row['email'];
                 $_SESSION['email']=$row['email'];
                 $_SESSION['name']=$row['name'];
                 $_SESSION['ID']=$row['ID'];
+                $_SESSION['logged_in'] = true;
+
             }
 
             return true;
@@ -69,16 +72,4 @@ class User{
         }
 
     }
-    // public function logout(){
-    //     // core configuration // destroy session, it will remove ALL session settings //redirect to login page
-
-    // if(logout(0)){
-
-    // include_once "config/core.php";
-
-    // session_destroy();
-
-    // return header("Location: {$home_url}login.php");
-    // }
-
 }
