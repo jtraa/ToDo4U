@@ -20,10 +20,7 @@ class Task{
  
     // create task with function create()
     public function create(){
-        if(!isset($_SESSION['logged_in'])){
-            header('Location:login.php');
-            
-        }else{
+        
             $userID = $_SESSION['ID'];
            
             //Insert Query for creating tasks
@@ -56,12 +53,13 @@ class Task{
             }else{
                 return false;
             }
-        }
+        
     }
     
 
     public function readAll($from_record_num, $records_per_page){
- 
+       
+
         if (isset($_POST['submit'])){
             $q = $_POST['q'];
             $column = $_POST['column'];
@@ -98,10 +96,11 @@ class Task{
         $stmt->execute();
      
         return $stmt;
-    }
+        
+}
 
 
-        // used for paging products
+        // used for paging tasks
     public function countAll(){
  
             $userID = $_SESSION['ID'];
@@ -182,7 +181,7 @@ class Task{
         }
     }
     public function CheckEndDateIfPassed(){
-
+        
     }
 }
 ?>

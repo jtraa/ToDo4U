@@ -1,4 +1,5 @@
 <?php
+
 // get ID of the product to be edited 
 $id = isset($_GET['id']) ? $_GET['id'] : die('ERROR: missing ID.');
  
@@ -101,4 +102,5 @@ echo "</div>";
 
 // set page footer
 include_once "layout_footer.php";
+
 ?>

@@ -1,7 +1,6 @@
 <?php
 
 
-
 // core configuration // set page title // include login checker // default to false
 include_once "config/core.php";
  
@@ -35,13 +34,14 @@ if($_POST){
     // check if email and password are in the database
     $email=$_POST['email'];
     $password=$_POST['password'];
-
-
+   
+        
+    
     // validate login
     if ($user->login($email, $password)){
         
         // if it is, set the session value to true
-
+        $_SESSION['logged_in'] = true;
         
         
         header("Location: {$home_url}indexlogin.php?action=login_success");
@@ -52,9 +52,8 @@ if($_POST){
         echo "<div class='alert alert-danger margin-top-40' role='alert'>
         Access Denied.<br /><br />
         Your username or password maybe incorrect </div>";
-}
-}
- 
+}   
+    }
 
 
 // include page header HTML

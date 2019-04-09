@@ -1,5 +1,7 @@
 <?php
 
+
+
 $dateoftoday = date('Y-m-d');
 
 // include the files //autoload classes // get database connection with database class // connect connection to objects // header of the page

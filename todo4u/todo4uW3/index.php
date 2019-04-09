@@ -1,6 +1,7 @@
 <?php
 
 
+
 // page given in URL parameter, default page is one // set number of records per page // calculate for the query LIMIT clause
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 
@@ -23,6 +24,7 @@ $database = new Database();
 $db = $database->getConnection();
  
 $tasks = new Task($db);
+
 
 // query products
 $stmt = $tasks->readAll($from_record_num, $records_per_page);

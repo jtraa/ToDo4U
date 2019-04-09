@@ -1,4 +1,7 @@
 <?php
+
+
+
 // get ID of the product to be read // include database and object files //autoload classes
 $id = isset($_GET['id']) ? $_GET['id'] : die('ERROR: missing ID.');
 
@@ -65,4 +68,5 @@ echo "</table>";
  
 // set footer
 include_once "layout_footer.php";
+
 ?>
