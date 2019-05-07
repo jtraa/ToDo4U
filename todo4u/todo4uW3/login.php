@@ -1,18 +1,7 @@
 <?php
-
-
-// core configuration // set page title // include login checker // default to false
 include_once "config/core.php";
- 
-
+// core configuration // set page title // include login checker // default to false 
 $page_title = "Login";
-
-
-
-
-
-
-
 
 $access_denied=false;
  
@@ -35,14 +24,13 @@ if($_POST){
     $email=$_POST['email'];
     $password=$_POST['password'];
    
-        
-    
+       
     // validate login
     if ($user->login($email, $password)){
         
         // if it is, set the session value to true
         $_SESSION['logged_in'] = true;
-        
+        var_dump ($_SESSION);
         
         header("Location: {$home_url}indexlogin.php?action=login_success");
         }
@@ -60,11 +48,7 @@ if($_POST){
 include_once "layout_head.php";
  
 echo "<div class='col-sm-6 col-md-4 col-md-offset-4'>";
- 
-
-
-
-    // actual HTML login form
+     // actual HTML login form
     echo "<div class='account-wall'>";
         echo "<div id='my-tab-content' class='tab-content'>";
             echo "<div class='tab-pane active' id='login'>";

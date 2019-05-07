@@ -40,14 +40,14 @@ if($_POST){
     // update the product
     if($tasks->update()){
         echo "<div class='alert alert-success alert-dismissable'>";
-            echo "Product was updated.";
+            echo "Task was updated.";
         echo "</div>";
     }
  
     // if unable to update the product, tell the user
     else{
         echo "<div class='alert alert-danger alert-dismissable'>";
-            echo "Unable to update product.";
+            echo "Unable to update task.";
         echo "</div>";
     }
 }
